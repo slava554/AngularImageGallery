@@ -1,0 +1,27 @@
+{
+  "editor.tabSize": 2,
+  "editor.wordWrapColumn": 120,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "eslint.validate": ["javascript", "typescript"],
+  "eslint.options": {
+    "extensions": [".js", ".ts"]
+  },
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "[json]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "javascript.suggest.autoImports": true,
+  "typescript.suggest.autoImports": true,
+  "prettier.printWidth": 120,
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "files.eol": "\n"
+}
