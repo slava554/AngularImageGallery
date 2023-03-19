@@ -12,6 +12,10 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
 import { PhotoPageComponent } from './pages/photo-page/photo-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { PhotoPreviewComponent } from './components/photo-preview/photo-preview.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
+import { HeaderComponent } from './components/header/header.component';
+import { PhotosFeedComponent } from './components/photos-feed/photos-feed.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
     MainPageComponent,
     FavoritesPageComponent,
     PhotoPageComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    PhotoPreviewComponent,
+    GalleryComponent,
+    HeaderComponent,
+    PhotosFeedComponent
   ],
   imports: [
     BrowserModule,
