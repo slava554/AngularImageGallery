@@ -1,5 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
 import { FeedService } from '../../services/feed/feed.service';
+
+const scrollDeviation = 2;
 
 @Component({
   selector: 'tst-photos-feed',
@@ -13,11 +15,23 @@ export class PhotosFeedComponent {
 
   constructor(private feedService: FeedService) {}
 
-  protected loadNewImages(): void {
-    this.feedService.loadNewImages();
+  ngAfterViewInit(): void {
+    this.feedService.loadNewImages(9);
+  }
+
+  @HostListener("window:scroll")
+  public onScroll(): void {
+    this.checkLoadingNecessary();
+    
   }
 
   protected trackBySrc(_index: number, item: string): string {
     return item;
+  }
+
+  private checkLoadingNecessary(): void {
+    if (document.body.scrollHeight - window.pageYOffset - window.innerHeight <= scrollDeviation) {
+      this.feedService.loadNewImages();
+    }
   }
 }

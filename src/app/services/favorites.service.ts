@@ -7,22 +7,16 @@ const localStorageKey = "savedPictures";
   providedIn: "root"
 })
 export class FavoritesService {
-  private _favoriteImagesIdList$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9"
-  ]);
+  private _favoriteImagesIdList$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
 
   constructor() {}
 
   public get favoriteImagesIdList$(): Observable<string[]> {
     return this._favoriteImagesIdList$.asObservable();
+  }
+
+  public init(): void {
+    this.loadFromLocalStorage();
   }
 
   public isSaved(id: string): boolean {
@@ -35,12 +29,9 @@ export class FavoritesService {
   }
 
   public removeFromFavorites(id: string): void {
-    console.log("removeFromFavorites", id);
     this._favoriteImagesIdList$.next(
       this._favoriteImagesIdList$.value.filter(savedId => savedId !== id)
     );
-    console.log("this._favoriteImagesIdList$.value", this._favoriteImagesIdList$.value);
-    
     this.saveToLocalStorage();
   }
 

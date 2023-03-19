@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FavoritesService } from '../../services/favorites.service';
 
 @Component({
@@ -7,10 +7,14 @@ import { FavoritesService } from '../../services/favorites.service';
   styleUrls: ['./gallery.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GalleryComponent {
+export class GalleryComponent implements OnInit {
   protected favoriteImagesIdList$ = this.favoritesService.favoriteImagesIdList$;
 
   constructor(private favoritesService: FavoritesService) {}
+  
+  ngOnInit(): void {
+    this.favoritesService.init();
+  }
 
   protected trackBySrc(_index: number, item: string): string {
     return item;

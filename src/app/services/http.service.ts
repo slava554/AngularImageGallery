@@ -1,14 +1,14 @@
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { delay } from "rxjs/operators";
+import { getRandomImageId } from "../utils/utils";
 
 @Injectable({
   providedIn: "root"
 })
 export class HttpService {
-  constructor() {}
-
-  public loadRandomImages(): Observable<string[]> {
-    return of(["100", "200", "300"]).pipe(delay(200 + Math.floor(Math.random() * 100)));
+  public loadRandomImages(count: number = 3): Observable<string[]> {
+    const ids = [...new Array(count)].map(() => getRandomImageId());
+    return of(ids).pipe(delay(2000 + Math.floor(Math.random() * 100)));
   }
 }

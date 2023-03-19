@@ -2,9 +2,7 @@
   <div class="feed__photo-preview" *ngFor="let imageId of feedImagesIdList; trackBy: trackBySrc">
     <tst-photo-preview [id]="imageId" [feed]="true"></tst-photo-preview>
   </div>
-
-  <div class="feed__loading">
-    <mat-spinner *ngIf="loading$ | async"></mat-spinner>
-    <a (click)="loadNewImages()">load</a>
-  </div>
+</div>
+<div class="feed__loading">
+  <mat-spinner [diameter]="40" *ngIf="loading$ | async"></mat-spinner>
 </div>

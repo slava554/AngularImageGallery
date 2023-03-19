@@ -1,26 +1,20 @@
-import { Injectable, OnDestroy } from '@angular/core';
-import { BehaviorSubject, Observable, Subscription } from 'rxjs';
-import { HttpService } from '../http.service';
+import { Injectable, OnDestroy } from "@angular/core";
+import { BehaviorSubject, Observable, Subscription } from "rxjs";
+import { HttpService } from "../http.service";
+
+const feedLengthMax = 12;
+const debounceTime = 100;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class FeedService implements OnDestroy {
-  private _feedImagesIdList$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([
-    "10",
-    "2",
-    "30",
-    "40",
-    "5",
-    "60",
-    "70",
-    "80",
-    "9"
-  ]);
-  private _loading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private _feedImagesIdList$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
+  private _loading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
   private loadNewImagesSubscription: Subscription | null = null;
+  private lastLoadTime: number = 0;
 
-  constructor(private httpService: HttpService) { }
+  constructor(private httpService: HttpService) {}
 
   ngOnDestroy(): void {
     this.loadNewImagesSubscription?.unsubscribe();
@@ -34,14 +28,24 @@ export class FeedService implements OnDestroy {
     return this._loading$.asObservable();
   }
 
-  public loadNewImages(): void {
+  public loadNewImages(count: number = 3): void {
+    if((this._loading$.value && this._feedImagesIdList$.value?.length) || (this.lastLoadTime && performance.now() - this.lastLoadTime < debounceTime)) {
+      return;
+    }
+    
     this.loadNewImagesSubscription?.unsubscribe();
     this._loading$.next(true);
-    this.httpService.loadRandomImages().subscribe(images => {
-      const feedImages = [...this._feedImagesIdList$.value, ...images];
-      const uniqueImages = [...new Set(feedImages)];
-      this._feedImagesIdList$.next(uniqueImages);
-      this._loading$.next(false);
-    });
+    this.loadNewImagesSubscription = this.httpService.loadRandomImages(count).subscribe(images => this.addImagesToFeed(images));
+  }
+
+  private addImagesToFeed(images: string[]): void {
+    const feedImages = [...this._feedImagesIdList$.value, ...images];
+    const uniqueImages = [...new Set(feedImages)];
+    if(uniqueImages.length > feedLengthMax) {
+      uniqueImages.splice(0, uniqueImages.length - feedLengthMax);
+    }
+    this._feedImagesIdList$.next(uniqueImages);
+    this._loading$.next(false);
+    this.lastLoadTime = performance.now();
   }
 }

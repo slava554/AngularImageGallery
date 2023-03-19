@@ -5,4 +5,8 @@
 
 .clickable {
   cursor: pointer;
+  
+  &:hover {
+    filter: brightness(1.02);
+  }
 }

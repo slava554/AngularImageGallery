@@ -39,6 +39,5 @@ export class PhotoPreviewComponent implements OnInit {
     this.favoritesService.addToFavorites(this.id);
     this.saved = true;
     this.clickable = false;
-    // mb detect changes
   }
 }

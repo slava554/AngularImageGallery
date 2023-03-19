@@ -2,4 +2,7 @@
   <div class="gallery__photo-preview" *ngFor="let imageId of favoriteImagesIdList; trackBy: trackBySrc">
     <tst-photo-preview [id]="imageId"></tst-photo-preview>
   </div>
+  <div class="gallery__empty" *ngIf="favoriteImagesIdList.length === 0">
+    <h3>You don't have saved images</h3>
+  </div>
 </div>
