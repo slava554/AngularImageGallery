@@ -1,3 +1,7 @@
-<p>gallery works!</p>
-<tst-photo-preview></tst-photo-preview>
-<tst-photo-preview></tst-photo-preview>
+<div class="gallery" *ngIf="favoriteImages$ | async as favoriteImages">
+  <p>gallery works!</p>
+
+  <div class="gallery__photo-preview" *ngFor="let image of favoriteImages; trackBy: trackBySrc">
+    <tst-photo-preview [src]="image"></tst-photo-preview>
+  </div>
+</div>
