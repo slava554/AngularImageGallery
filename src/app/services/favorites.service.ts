@@ -6,8 +6,16 @@ import { BehaviorSubject, Observable } from "rxjs";
 })
 export class FavoritesService {
   private _favoriteImages$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([
-    "https://material.angular.io/assets/img/examples/shiba2.jpg",
-    "https://material.angular.io/assets/img/examples/shiba1.jpg"
+    "https://picsum.photos/seed/1/200/300",
+    "https://picsum.photos/seed/2/200/300",
+    "https://picsum.photos/seed/1/200/300",
+    "https://picsum.photos/seed/2/200/300",
+    "https://picsum.photos/seed/1/200/300",
+    "https://picsum.photos/seed/2/200/300",
+    "https://picsum.photos/seed/1/200/300",
+    "https://picsum.photos/seed/2/200/300",
+    "https://picsum.photos/seed/1/200/300"
+    
   ]);
 
   constructor() {}
