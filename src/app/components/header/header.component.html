@@ -1,4 +1,28 @@
 <mat-toolbar>
-  <span><a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Photos</a></span>
-  <span><a [routerLink]="['/favorites']" routerLinkActive="active">Favorites</a></span>
+  <mat-toolbar-row class="header-toolbar__row">
+    <span class="header-toolbar__button">
+      <a
+        mat-stroked-button
+        routerLinkActive
+        #photosActive="routerLinkActive"
+        [routerLink]="['/']"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [color]="photosActive.isActive ? 'primary' : 'basic'"
+      >
+        Photos
+      </a>
+    </span>
+
+    <span class="header-toolbar__button">
+      <a
+        mat-stroked-button
+        routerLinkActive
+        #favoritesActive="routerLinkActive"
+        [routerLink]="['/favorites']"
+        [color]="favoritesActive.isActive ? 'primary' : 'basic'"
+      >
+        Favorites
+      </a>
+    </span>
+  </mat-toolbar-row>
 </mat-toolbar>
