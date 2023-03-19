@@ -8,6 +8,7 @@ const localStorageKey = "savedPictures";
 })
 export class FavoritesService {
   private _favoriteImagesIdList$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
+  private initialized: boolean = false; 
 
   constructor() {}
 
@@ -17,6 +18,7 @@ export class FavoritesService {
 
   public init(): void {
     this.loadFromLocalStorage();
+    this.initialized = true;
   }
 
   public isSaved(id: string): boolean {
@@ -24,6 +26,9 @@ export class FavoritesService {
   }
 
   public addToFavorites(id: string): void {
+    if(!this.initialized){
+      this.init();
+    }
     this._favoriteImagesIdList$.next([...this._favoriteImagesIdList$.value, id]);
     this.saveToLocalStorage();
   }

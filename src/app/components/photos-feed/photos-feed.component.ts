@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
 import { FeedService } from '../../services/feed/feed.service';
 
 const scrollDeviation = 2;
@@ -9,7 +9,7 @@ const scrollDeviation = 2;
   styleUrls: ['./photos-feed.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PhotosFeedComponent {
+export class PhotosFeedComponent implements AfterViewInit {
   protected feedImagesIdList$ = this.feedService.feedImagesIdList$;
   protected loading$ = this.feedService.loading$;
 
@@ -17,6 +17,10 @@ export class PhotosFeedComponent {
 
   ngAfterViewInit(): void {
     this.feedService.loadNewImages(9);
+  }
+
+  ngOnDestroy(): void {
+    this.feedService.clear();
   }
 
   @HostListener("window:scroll")

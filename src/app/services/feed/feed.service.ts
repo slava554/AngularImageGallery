@@ -38,6 +38,12 @@ export class FeedService implements OnDestroy {
     this.loadNewImagesSubscription = this.httpService.loadRandomImages(count).subscribe(images => this.addImagesToFeed(images));
   }
 
+  public clear(): void {
+    this.loadNewImagesSubscription?.unsubscribe();
+    this._loading$.next(true);
+    this._feedImagesIdList$.next([]);
+  }
+
   private addImagesToFeed(images: string[]): void {
     const feedImages = [...this._feedImagesIdList$.value, ...images];
     const uniqueImages = [...new Set(feedImages)];

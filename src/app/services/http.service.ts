@@ -9,6 +9,6 @@ import { getRandomImageId } from "../utils/utils";
 export class HttpService {
   public loadRandomImages(count: number = 3): Observable<string[]> {
     const ids = [...new Array(count)].map(() => getRandomImageId());
-    return of(ids).pipe(delay(2000 + Math.floor(Math.random() * 100)));
+    return of(ids).pipe(delay(200 + Math.floor(Math.random() * 100)));
   }
 }
