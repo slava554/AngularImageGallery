@@ -1,6 +1,10 @@
-<p>photos-feed works!</p>
-<tst-photo-preview></tst-photo-preview>
-<tst-photo-preview></tst-photo-preview>
-<tst-photo-preview></tst-photo-preview>
-<tst-photo-preview></tst-photo-preview>
-<mat-spinner></mat-spinner>
+<div class="feed" *ngIf="feedImagesIdList$ | async as feedImagesIdList">
+  <div class="feed__photo-preview" *ngFor="let imageId of feedImagesIdList; trackBy: trackBySrc">
+    <tst-photo-preview [id]="imageId" [feed]="true"></tst-photo-preview>
+  </div>
+
+  <div class="feed__loading">
+    <mat-spinner *ngIf="loading$ | async"></mat-spinner>
+    <a (click)="loadNewImages()">load</a>
+  </div>
+</div>
