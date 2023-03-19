@@ -1,11 +1,11 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { FavoritesService } from '../../services/favorites.service';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { FavoritesService } from "../../services/favorites.service";
 
 @Component({
-  selector: 'tst-photo-preview',
-  templateUrl: './photo-preview.component.html',
-  styleUrls: ['./photo-preview.component.scss'],
+  selector: "tst-photo-preview",
+  templateUrl: "./photo-preview.component.html",
+  styleUrls: ["./photo-preview.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PhotoPreviewComponent implements OnInit {
@@ -16,22 +16,22 @@ export class PhotoPreviewComponent implements OnInit {
   protected saved: boolean = false;
   protected clickable: boolean = true;
 
-  constructor(private favoritesService: FavoritesService, private router: Router){}
+  constructor(private favoritesService: FavoritesService, private router: Router) {}
 
   ngOnInit(): void {
     this.src = `https://picsum.photos/seed/${this.id}/200/300`;
-    if(this.feed) {
+    if (this.feed) {
       this.saved = this.favoritesService.isSaved(this.id);
       this.clickable = !this.saved;
     }
   }
 
-  protected onClick(): void{
-    if(this.feed && !this.saved) {
+  protected onClick(): void {
+    if (this.feed && !this.saved) {
       return this.save();
     }
-    if(!this.feed) {
-      this.router.navigate(["/photos", { id: this.id }]);
+    if (!this.feed) {
+      this.router.navigate([`/photos/${this.id}`]);
     }
   }
 

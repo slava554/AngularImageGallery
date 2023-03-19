@@ -34,6 +34,16 @@ export class FavoritesService {
     this.saveToLocalStorage();
   }
 
+  public removeFromFavorites(id: string): void {
+    console.log("removeFromFavorites", id);
+    this._favoriteImagesIdList$.next(
+      this._favoriteImagesIdList$.value.filter(savedId => savedId !== id)
+    );
+    console.log("this._favoriteImagesIdList$.value", this._favoriteImagesIdList$.value);
+    
+    this.saveToLocalStorage();
+  }
+
   private saveToLocalStorage(): void {
     window.localStorage.setItem(localStorageKey, JSON.stringify(this._favoriteImagesIdList$.value));
   }

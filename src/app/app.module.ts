@@ -16,6 +16,8 @@ import { PhotoPreviewComponent } from './components/photo-preview/photo-preview.
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PhotosFeedComponent } from './components/photos-feed/photos-feed.component';
+import { PhotoActionsComponent } from './components/photo-actions/photo-actions.component';
+import { PhotoCardComponent } from './components/photo-card/photo-card.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { PhotosFeedComponent } from './components/photos-feed/photos-feed.compon
     PhotoPreviewComponent,
     GalleryComponent,
     HeaderComponent,
-    PhotosFeedComponent
+    PhotosFeedComponent,
+    PhotoActionsComponent,
+    PhotoCardComponent
   ],
   imports: [
     BrowserModule,
