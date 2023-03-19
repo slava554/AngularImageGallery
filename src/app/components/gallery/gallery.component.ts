@@ -8,7 +8,7 @@ import { FavoritesService } from '../../services/favorites.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GalleryComponent {
-  protected favoriteImages$ = this.favoritesService.favoriteImages$;
+  protected favoriteImagesIdList$ = this.favoritesService.favoriteImagesIdList$;
 
   constructor(private favoritesService: FavoritesService) {}
 

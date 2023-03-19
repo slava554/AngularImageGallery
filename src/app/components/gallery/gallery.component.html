@@ -1,5 +1,5 @@
-<div class="gallery" *ngIf="favoriteImages$ | async as favoriteImages">
-  <div class="gallery__photo-preview" *ngFor="let image of favoriteImages; trackBy: trackBySrc">
-    <tst-photo-preview [src]="image"></tst-photo-preview>
+<div class="gallery" *ngIf="favoriteImagesIdList$ | async as favoriteImagesIdList">
+  <div class="gallery__photo-preview" *ngFor="let imageId of favoriteImagesIdList; trackBy: trackBySrc">
+    <tst-photo-preview [id]="imageId"></tst-photo-preview>
   </div>
 </div>
