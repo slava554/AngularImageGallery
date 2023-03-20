@@ -8,7 +8,7 @@ import { FavoritesService } from "../../services/favorites/favorites.service";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GalleryComponent implements OnInit {
-  protected favoriteImagesIdList$ = this.favoritesService.favoriteImagesIdList$;
+  public favoriteImagesIdList$ = this.favoritesService.favoriteImagesIdList$;
 
   constructor(private favoritesService: FavoritesService) {}
 
@@ -16,7 +16,7 @@ export class GalleryComponent implements OnInit {
     this.favoritesService.init();
   }
 
-  protected trackBySrc(_index: number, item: string): string {
+  trackBySrc(_index: number, item: string): string {
     return item;
   }
 }

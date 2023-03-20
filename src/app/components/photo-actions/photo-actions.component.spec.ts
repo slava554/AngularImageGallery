@@ -13,10 +13,18 @@ describe("PhotoActionsComponent", () => {
 
     fixture = TestBed.createComponent(PhotoActionsComponent);
     component = fixture.componentInstance;
+    component.id = "1";
     fixture.detectChanges();
   });
 
   it("should create", () => {
     expect(component).toBeTruthy();
+  });
+
+  it("should render content", () => {
+    const fixture = TestBed.createComponent(PhotoActionsComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector(".photo-actions")).toBeTruthy();
   });
 });

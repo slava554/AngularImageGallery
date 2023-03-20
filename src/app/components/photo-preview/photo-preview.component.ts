@@ -13,9 +13,9 @@ export class PhotoPreviewComponent implements OnInit {
   @Input() id: string = "";
   @Input() feed: boolean = false;
 
-  protected src: string | null = null;
-  protected saved: boolean = false;
-  protected clickable: boolean = true;
+  public src: string | null = null;
+  public saved: boolean = false;
+  public clickable: boolean = true;
 
   constructor(private favoritesService: FavoritesService, private router: Router) {}
 
@@ -27,7 +27,7 @@ export class PhotoPreviewComponent implements OnInit {
     }
   }
 
-  protected onClick(): void {
+  public onClick(): void {
     if (this.feed && !this.saved) {
       return this.save();
     }

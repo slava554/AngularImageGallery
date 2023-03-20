@@ -13,7 +13,7 @@ export class PhotoActionsComponent {
 
   constructor(private favoritesService: FavoritesService, private router: Router) {}
 
-  protected remove() {
+  public remove() {
     this.favoritesService.removeFromFavorites(this.id);
     this.router.navigate(["favorites"]);
   }

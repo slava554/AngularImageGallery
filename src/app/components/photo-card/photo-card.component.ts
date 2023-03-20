@@ -10,7 +10,7 @@ import { getSrcById } from "../../utils/utils";
 export class PhotoCardComponent {
   @Input() id: string = "";
 
-  protected src: string | null = null;
+  public src: string | null = null;
 
   ngOnInit(): void {
     this.src = getSrcById(this.id);

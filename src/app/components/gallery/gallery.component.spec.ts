@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { MatCardModule } from "@angular/material/card";
+import { PhotoPreviewComponent } from "../photo-preview/photo-preview.component";
 
 import { GalleryComponent } from "./gallery.component";
 
@@ -8,7 +10,8 @@ describe("GalleryComponent", () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [GalleryComponent]
+      declarations: [GalleryComponent, PhotoPreviewComponent],
+      imports: [MatCardModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(GalleryComponent);

@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { MatCardModule } from "@angular/material/card";
 import { GalleryComponent } from "../../components/gallery/gallery.component";
+import { PhotoPreviewComponent } from "../../components/photo-preview/photo-preview.component";
 
 import { FavoritesPageComponent } from "./favorites-page.component";
 
@@ -9,7 +11,8 @@ describe("FavoritesPageComponent", () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FavoritesPageComponent, GalleryComponent]
+      declarations: [FavoritesPageComponent, GalleryComponent, PhotoPreviewComponent],
+      imports: [MatCardModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(FavoritesPageComponent);

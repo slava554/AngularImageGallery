@@ -8,7 +8,7 @@ import { ActivatedRoute } from "@angular/router";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PhotoPageComponent {
-  protected id: string = "";
+  public id: string = "";
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {

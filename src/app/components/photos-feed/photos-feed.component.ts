@@ -10,8 +10,8 @@ const scrollDeviation = 2;
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PhotosFeedComponent implements AfterViewInit {
-  protected feedImagesIdList$ = this.feedService.feedImagesIdList$;
-  protected loading$ = this.feedService.loading$;
+  public feedImagesIdList$ = this.feedService.feedImagesIdList$;
+  public loading$ = this.feedService.loading$;
 
   constructor(private feedService: FeedService) {}
 
@@ -28,7 +28,7 @@ export class PhotosFeedComponent implements AfterViewInit {
     this.checkLoadingNecessary();
   }
 
-  protected trackBySrc(_index: number, item: string): string {
+  public trackBySrc(_index: number, item: string): string {
     return item;
   }
 
