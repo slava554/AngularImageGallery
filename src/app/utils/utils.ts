@@ -1,5 +1,5 @@
 export const getRandomImageId = (): string => {
-  return `i${Math.floor(Math.random() * 2000)}`;
+  return `i${Math.floor(Math.random() * 20000)}`;
 }
 
 export const getSrcById = (id: string): string => {
