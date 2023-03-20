@@ -27,13 +27,18 @@ export class FeedService implements OnDestroy {
   }
 
   public loadNewImages(count: number = 3): void {
-    if((this._loading$.value && this._feedImagesIdList$.value?.length) || (this.lastLoadTime && performance.now() - this.lastLoadTime < debounceTime)) {
+    if (
+      (this._loading$.value && this._feedImagesIdList$.value?.length) ||
+      (this.lastLoadTime && performance.now() - this.lastLoadTime < debounceTime)
+    ) {
       return;
     }
-    
+
     this.loadNewImagesSubscription?.unsubscribe();
     this._loading$.next(true);
-    this.loadNewImagesSubscription = this.httpService.loadRandomImages(count).subscribe(images => this.addImagesToFeed(images));
+    this.loadNewImagesSubscription = this.httpService
+      .loadRandomImages(count)
+      .subscribe(images => this.addImagesToFeed(images));
   }
 
   public clear(): void {
@@ -45,7 +50,7 @@ export class FeedService implements OnDestroy {
   private addImagesToFeed(images: string[]): void {
     const feedImages = [...this._feedImagesIdList$.value, ...images];
     const uniqueImages = [...new Set(feedImages)];
-    if(uniqueImages.length > feedLengthMax) {
+    if (uniqueImages.length > feedLengthMax) {
       uniqueImages.splice(0, uniqueImages.length - feedLengthMax);
     }
     this._feedImagesIdList$.next(uniqueImages);

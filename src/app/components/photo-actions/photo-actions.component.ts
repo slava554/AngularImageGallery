@@ -1,11 +1,11 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
-import { FavoritesService } from '../../services/favorites/favorites.service';
+import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
+import { Router } from "@angular/router";
+import { FavoritesService } from "../../services/favorites/favorites.service";
 
 @Component({
-  selector: 'tst-photo-actions',
-  templateUrl: './photo-actions.component.html',
-  styleUrls: ['./photo-actions.component.scss'],
+  selector: "tst-photo-actions",
+  templateUrl: "./photo-actions.component.html",
+  styleUrls: ["./photo-actions.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PhotoActionsComponent {

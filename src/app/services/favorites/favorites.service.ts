@@ -7,7 +7,7 @@ import { localStorageKey } from "../../config";
 })
 export class FavoritesService {
   private _favoriteImagesIdList$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
-  private initialized: boolean = false; 
+  private initialized: boolean = false;
 
   constructor() {}
 
@@ -25,7 +25,7 @@ export class FavoritesService {
   }
 
   public addToFavorites(id: string): void {
-    if(!this.initialized){
+    if (!this.initialized) {
       this.init();
     }
     this._favoriteImagesIdList$.next([...this._favoriteImagesIdList$.value, id]);
@@ -33,9 +33,7 @@ export class FavoritesService {
   }
 
   public removeFromFavorites(id: string): void {
-    this._favoriteImagesIdList$.next(
-      this._favoriteImagesIdList$.value.filter(savedId => savedId !== id)
-    );
+    this._favoriteImagesIdList$.next(this._favoriteImagesIdList$.value.filter(savedId => savedId !== id));
     this.saveToLocalStorage();
   }
 
@@ -45,11 +43,11 @@ export class FavoritesService {
 
   private loadFromLocalStorage(): void {
     const savedData = window.localStorage.getItem(localStorageKey);
-    if(!savedData){
+    if (!savedData) {
       return;
     }
     const imagesIdList = JSON.parse(savedData);
-    if(!imagesIdList || !Array.isArray(imagesIdList)){
+    if (!imagesIdList || !Array.isArray(imagesIdList)) {
       return;
     }
     this._favoriteImagesIdList$.next(imagesIdList);

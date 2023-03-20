@@ -1,23 +1,22 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { PhotosFeedComponent } from './photos-feed.component';
+import { PhotosFeedComponent } from "./photos-feed.component";
 
-describe('PhotosFeedComponent', () => {
+describe("PhotosFeedComponent", () => {
   let component: PhotosFeedComponent;
   let fixture: ComponentFixture<PhotosFeedComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PhotosFeedComponent ]
-    })
-    .compileComponents();
+      declarations: [PhotosFeedComponent]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PhotosFeedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

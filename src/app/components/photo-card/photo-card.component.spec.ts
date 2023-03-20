@@ -1,23 +1,22 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { PhotoCardComponent } from './photo-card.component';
+import { PhotoCardComponent } from "./photo-card.component";
 
-describe('PhotoCardComponent', () => {
+describe("PhotoCardComponent", () => {
   let component: PhotoCardComponent;
   let fixture: ComponentFixture<PhotoCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PhotoCardComponent ]
-    })
-    .compileComponents();
+      declarations: [PhotoCardComponent]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PhotoCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

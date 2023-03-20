@@ -1,12 +1,12 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
-import { FeedService } from '../../services/feed/feed.service';
+import { AfterViewInit, ChangeDetectionStrategy, Component, HostListener } from "@angular/core";
+import { FeedService } from "../../services/feed/feed.service";
 
 const scrollDeviation = 2;
 
 @Component({
-  selector: 'tst-photos-feed',
-  templateUrl: './photos-feed.component.html',
-  styleUrls: ['./photos-feed.component.scss'],
+  selector: "tst-photos-feed",
+  templateUrl: "./photos-feed.component.html",
+  styleUrls: ["./photos-feed.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PhotosFeedComponent implements AfterViewInit {
@@ -26,7 +26,6 @@ export class PhotosFeedComponent implements AfterViewInit {
   @HostListener("window:scroll")
   public onScroll(): void {
     this.checkLoadingNecessary();
-    
   }
 
   protected trackBySrc(_index: number, item: string): string {
