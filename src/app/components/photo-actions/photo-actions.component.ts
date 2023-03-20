@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { FavoritesService } from '../../services/favorites.service';
+import { FavoritesService } from '../../services/favorites/favorites.service';
 
 @Component({
   selector: 'tst-photo-actions',

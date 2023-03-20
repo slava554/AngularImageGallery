@@ -1,9 +1,7 @@
 import { Injectable, OnDestroy } from "@angular/core";
 import { BehaviorSubject, Observable, Subscription } from "rxjs";
-import { HttpService } from "../http.service";
-
-const feedLengthMax = 12;
-const debounceTime = 100;
+import { debounceTime, feedLengthMax } from "../../config";
+import { HttpService } from "../http/http.service";
 
 @Injectable({
   providedIn: "root"

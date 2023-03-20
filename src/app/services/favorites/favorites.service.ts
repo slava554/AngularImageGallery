@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
-
-const localStorageKey = "savedPictures";
+import { localStorageKey } from "../../config";
 
 @Injectable({
   providedIn: "root"

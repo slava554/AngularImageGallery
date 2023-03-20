@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { getSrcById } from '../../utils/utils';
 
 @Component({
   selector: 'tst-photo-card',
@@ -12,6 +13,6 @@ export class PhotoCardComponent {
   protected src: string | null = null;
 
   ngOnInit(): void {
-    this.src = `https://picsum.photos/seed/${this.id}/200/300`;
+    this.src = getSrcById(this.id);
   }
 }

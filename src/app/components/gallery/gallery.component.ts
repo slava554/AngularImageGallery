@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FavoritesService } from '../../services/favorites.service';
+import { FavoritesService } from '../../services/favorites/favorites.service';
 
 @Component({
   selector: 'tst-gallery',

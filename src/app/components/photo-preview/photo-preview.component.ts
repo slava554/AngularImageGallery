@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { FavoritesService } from "../../services/favorites.service";
+import { FavoritesService } from "../../services/favorites/favorites.service";
+import { getSrcById } from "../../utils/utils";
 
 @Component({
   selector: "tst-photo-preview",
@@ -19,7 +20,7 @@ export class PhotoPreviewComponent implements OnInit {
   constructor(private favoritesService: FavoritesService, private router: Router) {}
 
   ngOnInit(): void {
-    this.src = `https://picsum.photos/seed/${this.id}/200/300`;
+    this.src = getSrcById(this.id);
     if (this.feed) {
       this.saved = this.favoritesService.isSaved(this.id);
       this.clickable = !this.saved;
