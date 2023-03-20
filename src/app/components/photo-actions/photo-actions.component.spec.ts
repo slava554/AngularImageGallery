@@ -7,9 +7,7 @@ describe("PhotoActionsComponent", () => {
   let fixture: ComponentFixture<PhotoActionsComponent>;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [PhotoActionsComponent]
-    }).compileComponents();
+    await TestBed.configureTestingModule({}).compileComponents();
 
     fixture = TestBed.createComponent(PhotoActionsComponent);
     component = fixture.componentInstance;

@@ -1,10 +1,16 @@
+import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
 import { FavoritesService } from "../../services/favorites/favorites.service";
+import { PhotoPreviewComponent } from "../photo-preview/photo-preview.component";
 
 @Component({
   selector: "tst-gallery",
   templateUrl: "./gallery.component.html",
   styleUrls: ["./gallery.component.scss"],
+  standalone: true,
+  imports: [
+    PhotoPreviewComponent, CommonModule
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GalleryComponent implements OnInit {

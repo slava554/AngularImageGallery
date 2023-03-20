@@ -11,8 +11,7 @@ describe("FavoritesPageComponent", () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FavoritesPageComponent, GalleryComponent, PhotoPreviewComponent],
-      imports: [MatCardModule]
+      imports: [MatCardModule, PhotoPreviewComponent, GalleryComponent]
     }).compileComponents();
 
     fixture = TestBed.createComponent(FavoritesPageComponent);

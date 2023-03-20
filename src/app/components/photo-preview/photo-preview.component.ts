@@ -1,4 +1,6 @@
+import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, Input, OnInit } from "@angular/core";
+import { MatCardModule } from "@angular/material/card";
 import { Router } from "@angular/router";
 import { FavoritesService } from "../../services/favorites/favorites.service";
 import { getSrcById } from "../../utils/utils";
@@ -7,6 +9,10 @@ import { getSrcById } from "../../utils/utils";
   selector: "tst-photo-preview",
   templateUrl: "./photo-preview.component.html",
   styleUrls: ["./photo-preview.component.scss"],
+  standalone: true,
+  imports: [
+    MatCardModule, CommonModule
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PhotoPreviewComponent implements OnInit {

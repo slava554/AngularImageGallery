@@ -12,8 +12,7 @@ describe("PhotoPageComponent", () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PhotoPageComponent, PhotoCardComponent, PhotoActionsComponent],
-      imports: [RouterTestingModule, MatCardModule]
+      imports: [RouterTestingModule, MatCardModule, PhotoCardComponent, PhotoActionsComponent]
     }).compileComponents();
 
     fixture = TestBed.createComponent(PhotoPageComponent);

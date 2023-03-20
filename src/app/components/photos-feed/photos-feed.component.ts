@@ -1,5 +1,8 @@
+import { CommonModule } from "@angular/common";
 import { AfterViewInit, ChangeDetectionStrategy, Component, HostListener } from "@angular/core";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { FeedService } from "../../services/feed/feed.service";
+import { PhotoPreviewComponent } from "../photo-preview/photo-preview.component";
 
 const scrollDeviation = 2;
 

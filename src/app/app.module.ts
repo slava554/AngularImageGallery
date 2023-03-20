@@ -22,25 +22,17 @@ import { PhotoCardComponent } from "./components/photo-card/photo-card.component
 @NgModule({
   declarations: [
     AppComponent,
-    MainPageComponent,
-    FavoritesPageComponent,
-    PhotoPageComponent,
-    NotFoundPageComponent,
-    PhotoPreviewComponent,
-    GalleryComponent,
     HeaderComponent,
     PhotosFeedComponent,
-    PhotoActionsComponent,
-    PhotoCardComponent
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     MatButtonModule,
-    MatCardModule,
     MatToolbarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    PhotoPreviewComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

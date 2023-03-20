@@ -9,7 +9,6 @@ describe("PhotoCardComponent", () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PhotoCardComponent],
       imports: [MatCardModule]
     }).compileComponents();
 

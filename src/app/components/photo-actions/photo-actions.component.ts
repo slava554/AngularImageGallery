@@ -1,4 +1,6 @@
+import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
+import { MatButtonModule } from "@angular/material/button";
 import { Router } from "@angular/router";
 import { FavoritesService } from "../../services/favorites/favorites.service";
 
@@ -6,6 +8,10 @@ import { FavoritesService } from "../../services/favorites/favorites.service";
   selector: "tst-photo-actions",
   templateUrl: "./photo-actions.component.html",
   styleUrls: ["./photo-actions.component.scss"],
+  standalone: true,
+  imports: [
+    CommonModule, MatButtonModule
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PhotoActionsComponent {

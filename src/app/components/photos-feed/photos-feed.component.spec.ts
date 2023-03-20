@@ -12,8 +12,8 @@ describe("PhotosFeedComponent", () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PhotosFeedComponent, PhotoPreviewComponent],
-      imports: [MatProgressSpinnerModule, MatCardModule]
+      declarations: [PhotosFeedComponent],
+      imports: [MatProgressSpinnerModule, MatCardModule, PhotoPreviewComponent]
     }).compileComponents();
 
     fixture = TestBed.createComponent(PhotosFeedComponent);

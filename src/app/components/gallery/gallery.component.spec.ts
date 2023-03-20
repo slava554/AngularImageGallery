@@ -10,8 +10,7 @@ describe("GalleryComponent", () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [GalleryComponent, PhotoPreviewComponent],
-      imports: [MatCardModule]
+      imports: [MatCardModule, PhotoPreviewComponent]
     }).compileComponents();
 
     fixture = TestBed.createComponent(GalleryComponent);
