@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { PhotosFeedComponent } from "../../components/photos-feed/photos-feed.component";
 
 import { MainPageComponent } from "./main-page.component";
 
@@ -8,7 +10,8 @@ describe("MainPageComponent", () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MainPageComponent]
+      declarations: [MainPageComponent, PhotosFeedComponent],
+      imports: [MatProgressSpinnerModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(MainPageComponent);

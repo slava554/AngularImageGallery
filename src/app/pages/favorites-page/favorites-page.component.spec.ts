@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { GalleryComponent } from "../../components/gallery/gallery.component";
 
 import { FavoritesPageComponent } from "./favorites-page.component";
 
@@ -8,7 +9,7 @@ describe("FavoritesPageComponent", () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FavoritesPageComponent]
+      declarations: [FavoritesPageComponent, GalleryComponent]
     }).compileComponents();
 
     fixture = TestBed.createComponent(FavoritesPageComponent);
